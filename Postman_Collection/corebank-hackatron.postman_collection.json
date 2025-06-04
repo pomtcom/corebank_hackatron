@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "256245bf-bb09-47bd-8b55-33f9b32e21dc",
+		"name": "corebank-hackatron",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3753421"
+	},
+	"item": [
+		{
+			"name": "Account_Information",
+			"item": [
+				{
+					"name": "account_information",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"account_number\": \"1000001\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/account_information",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"account_information"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://localhost:8080/account_information \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"account_number\": \"1000001\"}'\n{\"account_number\":\"1000001\",\"account_type\":\"saving\",\"citizen_id\":\"1234567890000\",\"mobile\":\"0812345678\",\"last_name\":\"Doe\",\"first_name\":\"John\"}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Online Registration",
+			"item": [
+				{
+					"name": "Registration - pending otp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"citizenId\": \"1234567899923\",\n        \"firstName\": \"Alice3\",\n        \"lastName\": \"Smith3\",\n        \"mobile\": \"0899999993\",\n        \"pin\": \"445566\"\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/online/registration/init",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"online",
+								"registration",
+								"init"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://localhost:8080/online/registration/init \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n        \"citizenId\": \"1234567899999\",\n        \"firstName\": \"Alice\",\n        \"lastName\": \"Smith\",\n        \"mobile\": \"0899999999\",\n        \"pin\": \"445566\"\n      }'\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Registration - confirm otp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"mobile\": \"0899999993\",\n        \"otp\": \"123456\"\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/online/registration/verify",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"online",
+								"registration",
+								"verify"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://localhost:8080/online/registration/verify \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n        \"mobile\": \"0899999999\",\n        \"otp\": \"123456\"\n      }'"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create_account",
+			"item": [
+				{
+					"name": "person - create account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"citizen_id\": \"1234567899923\",\n        \"account_type\": \"saving\"\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/create_account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"create_account"
+							]
+						},
+						"description": "Generated from cURL: curl -X PUT http://localhost:8080/create_account \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n        \"citizen_id\": \"1234567890001\",\n        \"account_type\": \"saving\"\n      }'"
+					},
+					"response": []
+				},
+				{
+					"name": "teller - create account2 (fix account number)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"citizen_id\": \"1234567899923\",\n        \"account_type\": \"saving\",\n        \"manual\": true,\n        \"account_number\": \"1000002\"\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/teller/create_account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"teller",
+								"create_account"
+							]
+						},
+						"description": "Generated from cURL: curl -X PUT http://localhost:8080/create_account \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n        \"citizen_id\": \"1234567890001\",\n        \"account_type\": \"saving\"\n      }'"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MoneyDoposit",
+			"item": [
+				{
+					"name": "Teller - Money Transfer On us",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"account_number_source\": \"1000001\",\n        \"account_number_desc\": \"1000002\",\n        \"amount\": 100.0\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/moneytransfer_on_us",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"moneytransfer_on_us"
+							]
+						},
+						"description": "Generated from cURL: \ncurl -X POST http://localhost:8080/moneytransfer_on_us \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n        \"account_number_source\": \"1000001\",\n        \"account_number_desc\": \"1000002\",\n        \"amount\": 100.0\n      }'\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reset",
+			"item": [
+				{
+					"name": "Reset DB records",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/backdoor/reset",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"backdoor",
+								"reset"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://localhost:8080/backdoor/reset\n"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
