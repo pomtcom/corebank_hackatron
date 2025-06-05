@@ -53,3 +53,7 @@ All diagrams and related documents are available in the following directory:
 ```
 /Documents
 ```
+
+## ER Diagram
+
+![ER Diagram](Documents/diagrams/er_diagram_1.png)
