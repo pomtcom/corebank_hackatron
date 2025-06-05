@@ -57,3 +57,16 @@ All diagrams and related documents are available in the following directory:
 ## ER Diagram
 
 ![ER Diagram](Documents/diagrams/er_diagram_1.png)
+
+
+---
+
+### Final Note
+
+Please note that I completed this challenge within the 6-hour time limit. There are several areas I would have covered with more time, such as:
+
+1. Core banking application detailed diagram
+2. Component and technology stack explanation
+3. Statement API implementation
+4. Robot Framework scripts for API testing
+
